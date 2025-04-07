@@ -1,0 +1,146 @@
+.form {
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    margin: 0 auto 60px auto;
+}
+
+.form form {
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+form .form-greetings {
+    font-family: var(--font-montserrat);
+    text-align: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+form .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--light-2);
+    border: 1px solid var(--light-4);
+    align-items: center;
+    margin: 10px 0;
+    border-radius: 15px;
+}
+
+form .input-wrapper input,
+form .input-wrapper select {
+    width: 100%;
+    border-radius: 15px;
+    font-family: var(--font-montserrat);
+    font-size: 1em;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    padding: 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.input-wrapper > .input-icons {
+    margin: 0 20px 0 10px;
+    font-size: 1em;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.input-wrapper input:hover + .input-icons,
+.input-wrapper select:hover + .input-icons,
+.input-wrapper select:focus-within + .input-icons
+ {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(90deg);
+}
+
+.form form button[type=submit] {
+    border-radius: 15px;
+    padding: 20px 10px;
+    margin: 10px 0 20px 0;
+    font-family: var(--font-montserrat);
+    font-size: 1.1em;
+    background-color: var(--success-1);
+    font-weight: 600;
+    color: var(--light-2);
+    outline: none;
+    border: none;
+}
+
+.file-wrapper {
+    border: 2px dashed var(--dark-2) !important;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* z-index: -1; */
+}
+
+.file-wrapper input[type=file] {
+    padding: 80px 30px;
+    opacity: 0;
+    background-color: yellow;
+    z-index: 2;
+}
+
+.file-wrapper i {
+    left: 43% !important;
+    position: absolute !important;
+    font-size: 2.7em !important;
+    color: red;
+    z-index: 3;
+    transition: color 0.3s ease;
+}
+
+.label {
+    font-family: var(--font-montserrat);
+    margin: 20px 0 0 10px;
+}
+
+.alert-enr {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 35px;
+}
+
+@media only screen and (min-width: 360px) {
+
+}
+
+@media only screen and (min-width: 410px) {
+    
+}
+
+@media only screen and (min-width: 799px) {
+    .form {
+        max-width: 500px;
+    }
+
+    .input-wrapper input, 
+    .input-wrapper select {
+        font-size: 1.2em !important;
+        padding: 25px !important;
+    }
+
+    .file-wrapper input[type=file] {
+        padding: 90px 30px !important;
+        opacity: 0k
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+
+}
+

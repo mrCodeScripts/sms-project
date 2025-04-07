@@ -1,0 +1,254 @@
+.student-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.student-list-container .controller-search {
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.controller-search .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.controller-search .input-wrapper input {
+    flex: 1;
+    padding: 20px;
+    font-size: 0.9em;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border: none;
+    outline: none;
+}
+
+.controller-search .input-wrapper .icon {
+    width: 55px;
+    height: 55px;
+    padding: 10px;
+    background-color: var(--light-4);
+    transition: background-color 0.3s ease;
+}
+
+.input-wrapper .icon svg {
+    fill: var(--dark-2);
+    width: 100% !important;
+    height: 100% !important;
+    transition: fill 0.3s ease;
+}
+
+.controller-search .input-wrapper .icon:hover {
+    background-color: var(--dark-2);
+}
+
+.controller-search .input-wrapper .icon:hover svg {
+    fill: var(--light-2);
+}
+
+
+.student-list-container .student-enrollees-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+    margin: 0 10px;
+} 
+
+.student-enrollees-container .student-enrollee-bx {
+    padding: 10px;
+    background-color: var(--light-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.student-enrollee-bx .student-lrn {
+    color: var(--dark-2);
+    font-weight: 600;
+    font-family: var(--font-montserrat);
+    margin: 5px 0;
+}
+
+.student-enrollee-bx .student-fullname {
+    color: var(--dark-2);
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.student-enrollee-bx .student-picture {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+.student-picture img,
+.student-picture svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--dark-2);
+}
+
+.student-enrollee-bx .view-student-details {
+    padding: 10px 15px;
+    font-size: 0.8em;
+    border: none;
+    outline: none;
+    background-color: var(--info-1);
+    color: var(--light-2);
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+.main-content .view-details-modal {
+    position: absolute;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    transition: visbility 0.7s ease,
+                opacity 0.8s ease;
+}
+
+.view-details-modal .opaque {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.5;
+    z-index: -1 !important;
+    background-color: var(--dark-2);
+}
+
+.view-details-modal .info {
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0.7s ease,
+                opacity 0.8s ease;
+}
+
+.info .inf {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    /* color: var(--dark-2) !important; */
+}
+
+.inf .label {
+    font-size: 1em;
+    color: var(--light-4);
+    margin: 0 10px;
+}
+
+.inf .data {
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 10px;
+    background-color: var(--light-2);
+    margin: 3px;
+}
+
+.view-details-modal .linear-inf {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.linear-inf .inf {
+    flex: 1;
+    margin: 5px;
+}
+
+.info .close-btn {
+    width: fit-content;
+    margin: 20px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: transparent;
+    user-select: none;
+}
+
+.close-btn .icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    transition: 0.3s ease;
+    padding: 2px;
+}
+
+.close-btn .icon svg {
+    fill: var(--light-2);
+    width: 100%;
+    height: 100%;
+    transition: fill 0.3s ease;
+}
+
+.close-btn:hover .icon svg {
+    fill: var(--dark-2);
+}
+
+.close-btn:hover .icon {
+    background-color: var(--light-4);
+}
+
+.info .approve-btn {
+    margin: auto 10px 10px 10px;
+    background-color: var(--success-1);
+    color: var(--light-2);
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+.info .reject-btn {
+    margin: auto 10px 10px 10px;
+    background-color: var(--error-1);
+    color: var(--light-2);
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+.closemodal .view-details-modal {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.closemodal .view-details-modal .info {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.info .files .download-enr-files {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+    margin: 10px 10px;
+}
+
+.download-enr-files li a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--light-2);
+    border-radius: 15px;
+    color: var(--light-2);
+}
+

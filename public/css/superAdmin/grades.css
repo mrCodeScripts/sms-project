@@ -1,0 +1,41 @@
+.grades-dashborad .reports {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.reports .report-box {
+    min-width: 100px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    color: var(--light-2);
+    flex-grow: 1;
+    font-family: var(--font-montserrat);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    animation: o-0-1 0.2s ease;
+    animation: r-l 0.2s ease;
+}
+
+.report-box .report-value {
+    font-size: 2em;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-list .task {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin: 10px;
+    padding: 20px;
+    font-family: var(--font-montserrat);
+    border-radius: 15px;
+    animation: o-0-1 0.5s ease;
+    animation: b-t 0.5s ease;
+}

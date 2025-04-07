@@ -1,0 +1,344 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+.ui {
+    width: inherit;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.school-logo {
+    margin: 100px auto 10px auto;
+    width: 60px;
+    height: 60px;
+    user-select: none;
+    animation: o-0-1 0.2s ease;
+    animation: b-t 0.2s ease;
+}
+
+.school-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.greetings {
+    font-size: 1em;
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    user-select: none;
+    margin: 20px 0;
+    animation: o-0-1 0.5s ease;
+    animation: b-t 0.5s ease;
+}
+
+.form-wrapper {
+    padding: 20px;
+    min-width: 300px;
+    animation: o-0-1 0.7s ease;
+    animation: b-t 0.7s ease;
+    margin-bottom: 100px;
+}
+
+.form-wrapper .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form .input-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid var(--dark-2);
+    margin: 15px 0;
+    border-radius: 15px;
+    position: relative;
+}
+
+.input-wrapper .icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 15px;
+}
+
+.input-wrapper .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--dark-2);
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    flex: 1;
+    background-color: transparent;
+    color: var(--dark-3);
+    padding: 25px;
+    border: none;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    transition: border-color 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.input-wrapper .icon-absolute {
+    font-size: 1em;
+    position: absolute;
+    right: 8%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease;
+}
+
+.input-wrapper select:focus-within + .icon-absolute {
+    transform: rotate(90deg);
+    opacity: 1;
+    visibility: visible;
+}
+
+.input-wrapper input::-ms-reveal,
+.input-wrapper select::-ms-reveal,
+.input-wrapper input::-ms-clear,
+.input-wrapper select::-webkit-inner-spin-button {
+    display: none;
+    appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.input-wrapper select option {
+    font-size: inherit !important;
+}
+
+/* .input-wrapper:hover input,
+.input-wrapper:hover select,
+.input-wrapper:focus input,
+.input-wrapper:focus select,
+.input-wrapper:focus-within input,
+.input-wrapper:focus-within select {
+    border: 1px solid var(--info-2);
+} */
+
+
+button[type=submit] {
+    background-color: var(--success-1);
+    color: var(--light-2);
+    padding: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    margin: 6px 0;
+    user-select: none;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+button:disabled {
+    background-color: var(--success-disabled-1);
+}
+
+.link {
+    font-size: 0.7em;
+    text-align: right;
+    color: var(--dark-2);
+    font-family: var(--font-montserrat);
+    margin: 10px 0 0 0;
+}
+
+.link a:link {
+    color: var(--maroon-2);
+}
+
+.link a:active {
+    color: var(--maroon-1);
+}
+
+.error {
+    font-size: 0.6em;
+    color: red;
+    opacity: 0;
+    transform: translateY(120%);
+    left: 5%;
+    position: absolute;
+    font-family: var(--font-roboto);
+    font-weight: 600;
+    bottom: -5%;
+    visibility: hidden;
+    transition: visibility 0.3s ease,
+                opacity 0.3s ease;
+    z-index: 10;
+}
+
+.active .error {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    background-color: var(--success-1);
+    color: #FFF;
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 20px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.400, 0.500, 0.600, 1),
+                opacity 0.4s cubic-bezier(0.400, 0.500, 0.600, 1),
+                visibility 0.4s cubic-bezier(0.400, 0.500, 0.600, 1);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.success .modal {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal .icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+}
+
+.err-modal {
+    display: flex;
+    z-index: 5;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    background-color: red;
+    color: #FFF;
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 20px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    transform: translateY(-100%);
+    /* transform: translateY(0); */
+    transition: transform 0.4s cubic-bezier(0.400, 0.500, 0.600, 1),
+                opacity 0.4s cubic-bezier(0.400, 0.500, 0.600, 1),
+                visibility 0.4s cubic-bezier(0.400, 0.500, 0.600, 1);
+    opacity: 0;
+    visibility: hidden;
+    /* opacity: 1;
+    visibility: visible; */
+}
+
+.err .err-modal {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.err-modal .icon {
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+}
+
+.err-modal > .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: yellow !important;
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (min-width: 393px) {
+    .form-wrapper {
+        min-width: 350px;
+    } 
+
+    .link {
+        font-size: 0;
+    }
+
+    .input-wrapper {
+        margin: 12px;
+    }
+
+    .input-wrapper input {
+        font-size: 0.9em;
+    }
+}
+
+@media only screen and (min-width: 428px) {
+    .form-wrapper {
+        min-width: 380px;
+    } 
+
+    .link {
+        font-size: 0.9em;
+    }
+}
+
+@media only screen and (min-width: 750px)  {
+
+    .school-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .greetings {
+        font-size: 1.3em;
+    }
+
+    .school-logo {
+        margin-top: 200px !important;
+    }
+
+    .form-wrapper {
+        min-width: 450px !important;
+    }
+
+    .link {
+        font-size: 1em; 
+    }
+
+    .input-wrapper {
+        margin: 15px;
+    }
+    
+    .input-wrapper input,
+    .input-wrapper select {
+        font-size: 1em !important;
+        padding: 30px !important;
+    }
+
+    button[type=submit] {
+        font-size: 1.2em;
+        padding: 20px;
+    }
+}

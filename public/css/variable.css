@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --font-roboto: "Roboto", sans-serif;
+    --font-montserrat: "Montserrat", sans-serif;
+    --font-inter: "Inter", sans-serif;
+    --font-lora: "Lora", serif;
+    --dark-1: #1E1E1E;
+    --dark-2: #3e3e44;
+    --light-1: #CCC;
+    --light-2: #FFF;
+    --light-3: #C0C0CC;
+    --light-4: #E4E6EB;
+    --light-5: #F3F4FB;
+    --maroon-1: #330006;
+    --maroon-2: #4E0506;
+    --maroon-3: #900000;
+    --maroon-4: #B70000;
+    --maroon-5: #DF0000;
+    --info-1: #24aae2;
+    --info-2: #096192;
+    --clean-1: #FEFDEE;
+    --clean-2: #EDD1A6;
+    --clean-3: #f7e5c2;
+    --success-1: #1ABC9C;
+    --success-2: #198754;
+    --success-disabled-1: #8ED1C0;
+    --error-1: #FFCDD2;
+    --error-2: #D32F2F;
+    --bg-image: #FFE0E9;
+    --bg-audio: #D6F0FF;
+    --bg-video: #EADFFF;
+    --bg-doc: #FFF9DC;
+    --accent-audio: #00AEEF;
+    --accent-video: #8E44AD;
+    --accent-doc: #F1C40F;
+
+    /* ===== New Fire Added Below This Line 🔥 ===== */
+
+    /* 💎 Premium Aesthetic Shades */
+    --primary-indigo: #6366F1;
+    --primary-violet: #7C3AED;
+    --primary-blue: #3B82F6;
+    --primary-emerald: #10B981;
+    --primary-amber: #F59E0B;
+
+    /* 🌸 Pastel Heaven */
+    --pastel-pink: #FFC1CC;
+    --pastel-blue: #A2D2FF;
+    --pastel-green: #CFFDE1;
+    --pastel-yellow: #FFF9B0;
+    --pastel-lavender: #EAD7F7;
+
+    /* 🧊 Glass Vibes */
+    --glass-white-1: rgba(255, 255, 255, 0.25);
+    --glass-white-2: rgba(255, 255, 255, 0.15);
+    --glass-black-1: rgba(0, 0, 0, 0.25);
+    --glass-black-2: rgba(0, 0, 0, 0.15);
+
+    /* ⚫ Neutral Army */
+    --neutral-1: #F8F9FA;
+    --neutral-2: #E9ECEF;
+    --neutral-3: #DEE2E6;
+    --neutral-4: #CED4DA;
+    --neutral-5: #ADB5BD;
+
+    /* 🎨 Gradient Power */
+    --gradient-1: linear-gradient(45deg, #6EE7B7, #3B82F6);
+    --gradient-2: linear-gradient(45deg, #FDE68A, #FCA5A5);
+    --gradient-3: linear-gradient(45deg, #A78BFA, #F472B6);
+
+    /* 🎧 Brand-Inspired */
+    --spotify-green: #1DB954;
+    --netflix-red: #E50914;
+    --discord-purple: #7289DA;
+    --youtube-red: #FF0000;
+    --twitter-blue: #1DA1F2;
+
+    /* ✨ Muted Softs */
+    --muted-rose: #F2D0D9;
+    --muted-sky: #D8E9F0;
+    --muted-sage: #DDEAD0;
+    --muted-peach: #FFE5B4;
+    --muted-lilac: #E6DAF0;
+
+    /* ⚠️ Status Upgrades */
+    --warning-1: #F39C12;
+    --warning-2: #E67E22;
+    --error-dark: #C0392B;
+    --info-light: #D0EBFF;
+
+    /* 🧠 Calm & Focus */
+    --focus-blue: #CADDFE;
+    --focus-mint: #E2FCEF;
+    --focus-gray: #F5F5F5;
+    --focus-ink: #1A1A2E;
+
+    /* 🌌 Night & Cyberpunk */
+    --cyberpunk-blue: #00FFFF;
+    --cyberpunk-pink: #FF00FF;
+    --cyberpunk-purple: #8A2BE2;
+    --cyberpunk-bg: #0D0D0D;
+
+    /* === Neutral Tones === */
+    --neutral-6: #F1F3F5;  /* Light Gray */
+    --neutral-7: #E5E5E5;  /* Soft Gray */
+    --neutral-8: #D1D3D4;  /* Dusty Gray */
+    --neutral-9: #B0B0B0;  /* Pale Gray */
+    --neutral-10: #999999; /* Medium Gray */
+
+    /* === Blush & Rose Tones === */
+    --blush-1: #F8D7DA;  /* Blush Pink */
+    --blush-2: #F2B8A0;  /* Soft Rose */
+    --blush-3: #F5C0B2;  /* Warm Peachy Pink */
+    --blush-4: #E7A8B6;  /* Dusty Rose */
+
+    /* === Ocean & Sky Blues === */
+    --ocean-1: #34D1BF; /* Light Ocean */
+    --ocean-2: #56A7D7; /* Sky Blue */
+    --ocean-3: #5DBBFF; /* Light Blue */
+    --ocean-4: #4A90E2; /* Medium Sky Blue */
+
+    /* === Earthy Greens === */
+    --earth-green-1: #81C784;  /* Soft Green */
+    --earth-green-2: #7BBF7A;  /* Green Grass */
+    --earth-green-3: #6BAF85;  /* Earthy Sage */
+    --earth-green-4: #4CAF50;  /* Nature Green */
+
+    /* === Sunset & Gold === */
+    --sunset-1: #FF5F00; /* Deep Orange */
+    --sunset-2: #FF8F00; /* Sunset Yellow */
+    --sunset-3: #FFA000; /* Golden Yellow */
+    --sunset-4: #FF9F1C; /* Rich Amber */
+
+    /* === Night Mode === */
+    --night-1: #0A0A0A; /* Pure Black */
+    --night-2: #121212; /* Darker Grey */
+    --night-3: #1C1C1C; /* Deep Charcoal */
+    --night-4: #252525; /* Night Black */
+
+    /* === Soft Purples & Lilacs === */
+    --lavender-1: #C5A6F5; /* Soft Lavender */
+    --lavender-2: #B37BFF; /* Lilac Purple */
+    --lavender-3: #9B59B6; /* Purple Haze */
+    --lavender-4: #7A4AC7; /* Deep Lavender */
+
+    /* === Teal & Aqua === */
+    --aqua-1: #00B8D9; /* Teal Aqua */
+    --aqua-2: #00CED1; /* Dark Aqua */
+    --aqua-3: #008B8B; /* Deep Teal */
+    --aqua-4: #20B2AA; /* Light Sea Green */
+
+    /* === Sunshine & Warm Yellows === */
+    --sunshine-1: #FFD700; /* Gold */
+    --sunshine-2: #FFEB3B; /* Sunflower Yellow */
+    --sunshine-3: #FFDA44; /* Bright Yellow */
+    --sunshine-4: #F1C40F; /* Warm Yellow */
+
+    /* === Cyberpunk & Neon Glow === */
+    --neon-1: #00FF41;  /* Neon Green */
+    --neon-2: #FF0080;  /* Neon Pink */
+    --neon-3: #00FFFF;  /* Electric Blue */
+    --neon-4: #FF1EFF;  /* Neon Purple */
+    --neon-5: #00FF00;  /* Electric Lime */
+
+    /* === High Contrast Colors === */
+    --high-contrast-black: #000000; /* Pure Black */
+    --high-contrast-white: #FFFFFF; /* Pure White */
+    --high-contrast-yellow: #FFDC00; /* High-Vis Yellow */
+    --high-contrast-red: #D50000; /* Bright Red */
+
+    /* === Mint & Fresh Tones === */
+    --mint-1: #A3E4D7; /* Mint Green */
+    --mint-2: #4CAF50; /* Fresh Mint */
+    --mint-3: #DFF7F0; /* Light Mint */
+    --mint-4: #8EED8F; /* Minty Fresh */
+
+    /* === Error Colors === */
+    --error-1: #FF4D4F;  /* Light Red - for warnings or less severe errors */
+    --error-2: #FF0000;  /* Red - for major errors, needs attention */
+    --error-3: #D32F2F;  /* Dark Red - for critical error alerts */
+    --error-background: rgba(255, 0, 0, 0.1); /* Light red background for error notifications */
+
+    /* === Warning Colors === */
+    --warning-1: #FFB200; /* Amber - for medium warning messages */
+    --warning-2: #FF9800; /* Orange - for warnings that need attention */
+    --warning-3: #FFC107; /* Light Yellow - less urgent warning */
+    --warning-background: rgba(255, 152, 0, 0.1); /* Light orange background for warning notifications */
+
+    /* === Success Colors === */
+    --success-1: #4CAF50; /* Green - for success confirmations or positive feedback */
+    --success-2: #388E3C; /* Dark Green - for important success notifications */
+    --success-3: #81C784; /* Light Green - for successful actions, done properly */
+    --success-background: rgba(76, 175, 80, 0.1); /* Light green background for success notifications */
+
+    /* === Info Colors === */
+    --info-1: #2196F3; /* Bright Blue - standard information notifications */
+    --info-2: #0288D1; /* Deep Blue - for more prominent info messages */
+    --info-3: #03A9F4; /* Light Blue - for soft, non-urgent info */
+    --info-background: rgba(33, 150, 243, 0.1); /* Light blue background for informational notifications */
+
+    /* === Disabled/Inactive Colors === */
+    --disabled-1: #BDBDBD; /* Light Grey - for disabled buttons or text */
+    --disabled-2: #E0E0E0; /* Lighter Grey - for things that are visually inactive */
+    --disabled-3: #9E9E9E; /* Darker Grey - for less prominent inactive elements */
+
+    /* === Text Colors === */
+    --text-primary: #212121; /* Main text color, dark for easy readability */
+    --text-secondary: #757575; /* Secondary text color, for less important info */
+    --text-muted: #9E9E9E; /* Muted text for things like placeholders or less emphasis */
+    --text-inverted: #FFFFFF; /* White text for dark backgrounds */
+    --text-accent: #1E88E5; /* Accent text color, often for links or interactive text */
+
+    /* === Background Colors === */
+    --bg-primary: #FFFFFF; /* White - for main content background */
+    --bg-secondary: #F5F5F5; /* Very light grey - for sections that need separation */
+    --bg-alt: #F1F1F1; /* Light grey - for alternate backgrounds */
+    --bg-dark: #212121; /* Dark grey - for dark mode or footer */
+
+    /* === Accent Colors === */
+    --accent-primary: #6200EE;  /* Purple - great for active elements like buttons */
+    --accent-secondary: #FF4081; /* Pink - good for secondary elements */
+    --accent-highlight: #03DAC6; /* Teal - great for highlighting */
+    --accent-background: rgba(98, 0, 238, 0.1); /* Light purple background for accents */
+
+    /* === Alert Colors === */
+    --alert-error: #FF3B30; /* High alert error color */
+    --alert-warning: #FF9500; /* High alert warning color */
+    --alert-info: #1E88E5; /* High alert info color */
+    --alert-success: #4CAF50; /* High alert success color */
+
+    /* === Dark Mode Colors === */
+    --dark-bg-primary: #121212; /* Dark background color */
+    --dark-bg-secondary: #1E1E1E; /* Slightly lighter dark background */
+    --dark-text-primary: #E0E0E0; /* Light gray text */
+    --dark-text-secondary: #B0B0B0; /* Subtle text color for secondary info */
+
+    /* === Hover & Focus States === */
+    --hover-primary: rgba(98, 0, 238, 0.2); /* Light purple hover effect */
+    --hover-secondary: rgba(33, 150, 243, 0.2); /* Blue hover effect */
+    --focus-primary: rgba(0, 150, 136, 0.3); /* Teal focus effect */
+    --focus-secondary: rgba(255, 87, 34, 0.3); /* Orange focus effect */
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--light-5);
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    width: 300px;
+    /* background-color: var(--clean-1); */
+    color: var(--dark-1);
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    user-select: none;
+}
+
+.has-scroll {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+}
+
+.has-scroll::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+
+.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.has-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--light-4);
+    opacity: 0.5;
+    border-radius: 10px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+@keyframes b-t {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    } to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes r-l {
+    from {
+        transform: translateX(2rem);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+.centered {
+    text-align: center !important;
+}
+
+@keyframes o-0-1 {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.ui_sidebar {
+    z-index: 10;
+}
+
+/* Remove default bg of links when clicked */
+a {
+    -webkit-tap-highlight-color: transparent;
+}

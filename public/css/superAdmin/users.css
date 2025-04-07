@@ -1,0 +1,215 @@
+.superAdmin-users-dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-user-btn {
+    padding: 15px;
+    font-family: var(--font-montserrat);
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #FFF;
+    margin: 15px;
+    background-color: var(--success-1);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    animation: o-0-1 0.4s ease;
+    animation: r-l 0.4s ease;
+}
+
+.superAdmin-users-dashboard .addUser-form {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(2px); 
+    /* background-color: var(--dark-2); */
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.addUser-form .form .controll {
+    padding: 10px;
+}
+
+.controll .icon {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    margin: 10px;
+    right: 0;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+.controll .icon:hover svg,
+.controll .icon:focus-within svg {
+    fill: cyan;
+}
+
+.controll .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--light-2);
+}
+
+.addUser-form .added-bg-opac {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-2);
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+}
+
+.addUser-form .form {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    padding: 20px;
+    z-index: 11;
+    border-radius: 15px;
+}
+
+.form .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid var(--light-4);
+    margin: 4px 0;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    appearance: none;
+    padding: 20px;
+    font-family: var(--font-montserrat);
+    border: none;
+    outline: none;
+}
+
+button[type=submit] {
+    padding: 15px;
+    margin: 5px 0;
+    font-size: 1em;
+    background-color: var(--info-1);
+    color: var(--light-2);
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    margin: 15px 0 0 0;
+}
+
+.input-wrapper input::-ms-reveal,
+.input-wrapper select::-ms-reveal,
+.input-wrapper input::-ms-clear,
+.input-wrapper select::-webkit-inner-spin-button {
+    display: none;
+    appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.superAdmin-users-dashboard .user-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.user-list .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    max-width: 200px;
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: o-0-1 0.7s ease;
+    animation: b-t 0.7s ease;
+}
+
+.user .profile-pic {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                border-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--dark-2);
+    border-radius: 100%;
+    position: relative;
+}
+
+.user .user-name {
+    font-size: 0.7em;
+    font-weight: 900;
+    font-family: var(--font-montserrat);
+    color: var(--dark-2);
+    margin: 10px 0;
+}
+
+.user:hover .profile-pic {
+    border-color: var(--info-1);
+    transform: translateY(-5px);
+}
+
+.user .profile-pic::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+    z-index: 10;
+    border: 1px solid var(--light-4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.user:hover .online-dot::after {
+    opacity: 1;
+}
+
+.online-dot::after {
+  background-color: #00FF00; /* Bright Emerald Green */
+}
+
+.user:hover,
+.user:focus-within {
+    background-color: var(--clean-1);
+}
+
+.user .profile-pic .icon {
+    width: 50px;
+    height: 50px;
+    user-select: none;
+}
+
+.profile-pic .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #CCC;
+}
+
+.no-users-modal {
+    font-size: 1.4em;
+    margin: 20px auto;
+    color: var(--dark-2);
+    font-family: var(--font-montserrat);
+    animation: o-0-1 0.4s ease;
+    animation: b-t 0.4s ease;
+}

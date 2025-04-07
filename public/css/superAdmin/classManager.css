@@ -1,0 +1,678 @@
+.add-class-btn {
+    margin: 10px 15px 20px 15px;
+    padding: 15px;
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    color: var(--light-2);
+    background-color: var(--success-1);
+    /* z-index: 2; */
+    position: relative;
+    user-select: none;
+} 
+
+.class-manager-dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.classes {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.classes .class-box {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 15px;
+    margin: 8px 15px;
+    background-color: var(--light-2);
+    border-radius: 15px;
+}
+
+.class-box .class-name {
+    font-size: 1.7em;
+    font-family: var(--font-montserrat);
+    color: var(--dark-2);
+    margin: 0 7px;
+}
+
+.class-box .upper-controller {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.upper-controller .controlers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto; 
+    margin-left: auto;
+}
+
+.controlers .icon {
+    width: 25px;
+    height: 25px;
+    margin: 0 7px;
+}
+
+.controlers .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--dark-2);
+    transition: fill 0.3s ease;
+}
+
+.controlers .icon:hover svg {
+    fill: var(--ocean-4);
+}
+
+.class-box .lower-controll {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lower-controll .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 0 0 10px;
+    font-weight: 600;
+    color: var(--dark-2);
+}
+
+.lower-controll .icon {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px 0 0;
+}
+
+.lower-controll .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #505050;
+}
+
+.closemodal .add-class-form-modal {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.add-class-form-modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+}
+
+.add-class-form-modal .extra-opaque {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-2);
+    opacity: 0.9;
+    z-index: 5;
+}
+
+.add-class-form-modal .inner-form {
+    display: flex;
+    flex-direction: column;
+    z-index: 5 !important;
+    height: 100%;
+    position: relative;
+    z-index: 900;
+}
+
+.inner-form .form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    height: 100%;
+}
+
+.form .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    margin: 5px 0;
+}
+
+.form .input-wrapper input,
+.form .input-wrapper select {
+    width: 100%;
+    padding: 20px;
+    margin: 2px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid var(--light-4);
+    appearance: none;
+}
+
+.input-wrapper .icon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: 20px;
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease,
+                opacity 0.3s ease;
+}
+
+.input-wrapper .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.input-wrapper select:hover + .icon,
+.input-wrapper select:focus-within + .icon {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.inner-form .form button[type=submit] {
+    padding: 15px;
+    background-color: var(--success-1);
+    color: var(--light-2);
+    font-weight: 500;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    margin: 5px 0;
+    border-radius: 10px;
+    margin-top: auto;
+}
+
+.inner-form .close-btn {
+    width: fit-content;
+    border-radius: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    margin: 10px;
+}
+
+.close-btn .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.close-btn .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.class-manager-dashboard .edit-class-form {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+}
+
+.closemodalEdit .edit-class-form {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.edit-class-form .class-form {
+    width: 100%;
+    height: 100%;
+}
+
+.class-form .class-form-close-btn {
+    padding: 10px;   
+    margin: 5px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: none;
+    outline: none;
+}
+
+.class-form-close-btn .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.class-form-close-btn .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.edit-class-form .opaque {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-2);
+    opacity: 0.9;
+    position: absolute;
+    z-index: -1 !important;
+}
+
+.edit-class-form .class-form form {
+    z-index: 200 !important;
+    width: 100%;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.class-form form .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+    position: relative;
+}
+
+.class-form form .input-wrapper input,
+.class-form form .input-wrapper select {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--light-4);
+    outline: none;
+    border-radius: 15px;
+    appearance: none;
+}
+
+.class-form form .input-wrapper .icon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: 20px;
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease,
+                opacity 0.3s ease;
+}
+
+.class-form form .input-wrapper select:hover + .icon {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(90deg);
+}
+
+.class-form form button[type=submit] {
+    padding: 15px;
+    background-color: var(--success-1);
+    color: var(--light-2);
+    font-weight: 500;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    margin: 5px 0;
+    border-radius: 10px;
+    margin-top: auto;
+}
+
+.closemodalAddStudModal .addStudent-modal {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2000000 !important;
+}
+
+.class-manager-dashboard .addStudent-modal {
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+}
+
+.addStudent-modal .opaque {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-2);
+    opacity: 0.9;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.addStudent-modal .student-list {
+    width: 100%;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    z-index: 999 !important;
+    position: relative;
+}
+
+.student-list .student-list-close-btn {
+    width: fit-content;
+    padding: 5px;
+    border-radius: 100%;
+    margin: 10px 3px;
+    border: none;
+    outline: none;
+}
+
+.student-list-close-btn .icon {
+    width: 25px;
+    height: 25px;
+}
+
+.student-list-close-btn .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.student-list ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-2);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.student-list ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--light-4);
+}
+
+.student-list ul {
+    max-height: 500px;
+}
+
+.student-list ul li input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
+
+.student-list ul li .student-name {
+    font-size: 0.9em;
+    font-weight: 600;
+    font-family: var(--font-montserrat);
+    margin: 0 10px;
+}
+
+.student-list ul li .requested-strand {
+    background-color: var(--ocean-4);
+    color: var(--light-2);
+    padding: 5px;
+    font-size: 0.7em;
+    border-radius: 7px;
+    max-width: 100px;
+    margin-left: auto;
+}
+
+.student-list .add-select-student-btn {
+    border: none;
+    outline: none;
+    background-color: var(--info-2);
+    color: var(--light-2);
+    font-size: 1.1em;
+    padding: 15px;
+    margin: 5px 0;
+}
+
+.closemodalSchedEdit .manageTeacherSched-modal {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.class-manager-dashboard .manageTeacherSched-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 900;
+    visibility: visible;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+}
+
+.manageTeacherSched-modal .opaque {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-2);
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.manageTeacherSched-modal .form-wrapper {
+    position: relative;
+    z-index: 500;
+    width: 100%;
+}
+
+.form-wrapper form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.form-wrapper form .linear-input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.linear-input-wrapper .input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 5px;
+    position: relative;
+}
+
+.linear-input-wrapper .input-wrapper .icon {
+    transition: opacity 0.3s ease,
+                transform 0.3s ease;
+    opacity: 0;
+    right: 10px;
+}
+
+.linear-input-wrapper .input-wrapper .icon svg {
+    fill: var(--dark-2);
+}
+
+.input-wrapper select:hover + .icon,
+.input-wrapper select:focus-within + .icon {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    padding: 15px;
+    outline: none;
+    border: 1px solid var(--light-4);
+    appearance: none;
+    border-radius: 5px;
+}
+
+.form-wrapper form .multidimension-input-wrapper ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+.multidimension-input-wrapper ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+}
+
+.multidimension-input-wrapper ul li input {
+    width: 15px;
+    height: 15px;
+    margin: 0 2px;
+}
+
+.multidimension-input-wrapper ul li label {
+    font-weight: 800;   
+}
+
+.form-wrapper form button[type=submit] {
+    padding: 15px;
+    background-color: var(--success-1);
+    border: none;
+    outline: none;
+    color: var(--light-2);
+    font-weight: 600;
+}
+
+.sun {
+  color: #FF6B6B; 
+}
+
+.mon {
+  color: #4ECDC4;
+}
+
+.tue {
+  color: #FFD93D;
+}
+
+.wed {
+  color: #298b9b; 
+}
+
+.thu {
+  color: #FF9F1C;
+}
+
+.fri {
+  color: #2EC4B6;
+}
+
+.sat {
+  color: #9B5DE5;
+}
+
+.manageTeacherSched-modal .sched-list {
+    margin: 10px;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    overflow-y: scroll;
+    z-index: 100;
+    max-height: 350px;
+}
+
+.sched-list .sched-box {
+    background-color: var(--light-2);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 3px 0;
+}
+
+.sched-box .upper-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.upper-box .time {
+    font-weight: 600;
+    font-size: 1.2em;
+    font-family: var(--font-montserrat);
+    color: var(--dark-2);
+}
+
+.upper-box .icon {
+    margin-left: auto;
+    width: 15px;
+    height: 15px;
+}
+
+.upper-box .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.sched-box .lower-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.lower-box .days {
+    margin: 10px 0;
+}
+
+.lower-box .days span {
+    border: 1px solid var(--light-4);
+    margin: 2px;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+.lower-box .subject-name {
+    font-size: 1.7em;
+    margin: 3px 10px;
+}
+
+.lower-box .subject-teacher {
+    font-size: 0.9em;
+    margin: 0 10px;
+    color: var(--dark-2);
+}
+
+.manageTeacherSched-modal .form-wrapper .class-sched-close-btn {
+    width: fit-content;
+    margin: 10px 15px;
+    border-radius: 100%;
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.class-sched-close-btn .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.class-sched-close-btn .icon svg {
+    width: 100%;
+    height: 100%;
+}

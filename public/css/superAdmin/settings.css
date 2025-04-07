@@ -1,0 +1,154 @@
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.settings-container .account-settings {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.account-settings .setting-box {
+    flex-grow: 1;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    font-family: var(--font-montserrat);
+    animation: o-0-1 0.3s ease;
+    animation: b-t 0.3s ease;
+}
+
+.setting-box .setting-label {
+    font-size: 0.9em;
+    /* color: var(--dark-2) */
+    color: #3e3e55;
+    font-weight: 600;
+}
+
+.setting-box .setting-value {
+    padding: 10px;
+    border: 1px solid var(--light-4);
+    margin: 5px 0;
+    background-color: var(--light-2);
+    border-radius: 5px;
+}
+
+.change-password {
+    width: 100%;
+    height: auto;
+    animation: o-0-1 0.5s ease;
+    animation: b-t 0.5s ease;
+}
+
+.change-password form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+form .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--light-2);
+    margin: 5px 0;
+    border: 2px solid var(--dark-2);
+    border-radius: 5px;
+}
+
+.input-wrapper input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+}
+
+form button[type=submit] {
+    background-color: var(--success-1);
+    padding: 15px;
+    color: var(--light-2);
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    margin: 5px 0;
+}
+
+.log-records {
+    background-color: var(--light-2);
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: 500px;
+    min-height: 200px;
+    border-radius: 15px;
+    animation: o-0-1 0.7s ease;
+    animation: b-t 0.7s ease;
+}
+
+.log-records h1 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--dark-2);
+    text-align: center;
+    background-color: var(--maroon-2);
+    color: var(--light-2);
+    border-bottom: 1px solid var(--light-4);
+    padding: 10px;
+    min-height: fit-content;
+}
+
+.log-records table {
+    flex: 1;
+    text-align: center;
+    border-collapse: collapse;
+    min-height: fit-content;
+}
+
+table thead th div {
+    padding: 15px;
+    border-bottom: 1px solid var(--light-4);
+    color: var(--light-2);
+    background-color: var(--maroon-2);
+}
+
+table tbody td div {
+    padding: 20px 0;
+    font-weight: 600;
+    background-color: var(--clean-1);
+    font-size: 0.7em;
+}
+
+.stat {
+    margin: 0 7px;
+    border-radius: 10px;
+}
+
+.success {
+    background-color: var(--success-1);
+    color: #FFF;
+}
+
+.failed {
+    background-color: red;
+    color: #FFF;
+}
+
+.clean-log-history-btn {
+    margin: 15px 15px 80px 15px;
+    padding: 15px;
+    font-family: var(--font-montserrat);
+    color: var(--error-1);
+    background-color: var(--error-2);
+    font-weight: 700;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}

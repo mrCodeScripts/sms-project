@@ -1,0 +1,87 @@
+.student-tasks-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+
+.student-tasks-container .tasks-report {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tasks-report .report-box {
+    min-width: 100px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    color: var(--light-2);
+    flex-grow: 1;
+    font-family: var(--font-montserrat);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    animation: o-0-1 0.2s ease;
+    animation: r-l 0.2s ease;
+}
+
+.report-box .report-value {
+    font-size: 2em;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-list .task {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin: 10px;
+    padding: 20px;
+    font-family: var(--font-montserrat);
+    border-radius: 15px;
+    animation: o-0-1 0.5s ease;
+    animation: b-t 0.5s ease;
+}
+
+.task .upper-controll {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.upper-controll .fa-thumbtack {
+    font-size: 1em;
+    margin-right: 10px;
+    color: red;
+    transform: rotate(50deg);
+}
+
+.upper-controll .fa-ellipsis {
+    margin-left: auto;
+}
+
+.upper-controll .task-title {
+    font-weight: 600;
+    color: var(--dark-2);
+}
+
+.task .lower-controll  {
+    background-color: var(--light-5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.lower-controll > p {
+    font-weight: 550;
+    margin-bottom: 5px;
+}
+
+.lower-controll .task-description {
+    text-indent: 30px;
+    padding-left: 10px;
+}

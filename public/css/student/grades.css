@@ -1,0 +1,99 @@
+.grade-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.grades {
+    /* width: 100%; */
+    background-color: #FFF;
+    /* padding: 20px 0; */
+    margin: 10px;
+    height: auto;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-width: 400px;
+    margin-bottom: 30px;
+    animation: o-0-1 0.2s ease;
+    animation: b-t 0.2s ease;
+}
+
+.grades table {
+    flex: 1;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table thead th div {
+    padding: 15px;
+    border-bottom: 1px solid var(--light-4);
+    margin-bottom: 10px;
+    color: var(--light-2);
+    background-color: var(--maroon-2);
+}
+
+table tbody td div {
+    padding: 20px 0;
+    font-weight: 600;
+}
+
+.grading-history {
+    max-width: 400px;
+    border-radius: 15px;
+    animation: o-0-1 0.5s ease;
+    animation: b-t 0.5s ease;
+}
+
+.grade-history {
+     /* width: 100%; */
+    background-color: #FFF;
+    /* padding: 20px 0; */
+    margin: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    height: auto;
+    display: flex;
+    max-height: 500px;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.grade-history table {
+    flex: 1;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table thead th div {
+    padding: 15px;
+    border-bottom: 1px solid var(--light-4);
+    margin-bottom: 10px;
+    color: var(--light-2);
+    background-color: var(--maroon-2);
+}
+
+table tbody td div {
+    padding: 10px 0;
+    font-weight: 600;
+    margin: 3px 0;
+}
+
+table tbody td .points-score {
+    margin: 5px;
+    color: var(--light-2);
+    background-color: var(--success-1);
+    border-radius: 20px;
+}
+
+.label {
+    font-size: 1.3em;
+    margin: 0 20px;
+    text-align: center;
+    font-weight: 600;
+    font-family: var(--font-montserrat);
+    color: var(--dark-2);
+    animation: o-0-1 0.3s ease;
+    animation: r-l 0.3s ease;
+}

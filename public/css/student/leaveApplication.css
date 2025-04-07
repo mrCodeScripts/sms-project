@@ -1,0 +1,76 @@
+.leave-application-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--light-2);
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid var(--dark-2);
+    margin: 10px 0;
+    position: relative;
+}
+
+.input-wrapper i {
+    margin: 0 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease;
+    position: absolute;
+    right: 10px;
+}
+
+.input-wrapper select:hover + i,
+.input-wrapper select:focus-within + i
+ {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(90deg);
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+    width: 100%;
+    padding: 20px;
+    background-color: transparent;
+    font-size: 1em;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.input-wrapper textarea {
+    border: none;
+    outline: none;
+    padding: 20px;
+    resize: none;
+    background-color: var(--light-4);
+    border-radius: 15px;
+}
+
+button[type=submit] {
+    background-color: var(--success-1);
+    color: var(--light-2);
+    padding: 15px;
+    font-size: 1.2em;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    user-select: none;
+}

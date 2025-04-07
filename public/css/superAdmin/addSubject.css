@@ -1,0 +1,260 @@
+.superAdmin-addSubject {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.superAdmin-addSubject .superAdmin-addSubject-form {
+    margin-bottom: 20px;
+}
+
+.superAdmin-addSubject .form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.form {
+    width: 100%;
+    height: auto;
+    animation: o-0-1 0.5s ease;
+    animation: b-t 0.5s ease;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.form .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--light-2);
+    margin: 5px 0;
+    border: 1px solid var(--light-4);
+    border-radius: 5px;
+    position: relative;
+}
+
+.input-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 15px;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.input-wrapper:focus-within i {
+    transform: rotate(90deg);
+    opacity: 1;
+    visibility: visible;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea 
+ {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    resize: none;
+}
+
+form button[type=submit] {
+    background-color: var(--success-1);
+    padding: 15px;
+    color: var(--light-2);
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    border-radius: 10px;
+    position: relative;
+}
+
+form button[type=submit] .icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+}
+
+button[type=submit] .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--light-2);
+    stroke-width: 5px;
+}
+
+button[type=submit] p {
+    transition: padding-right 0.3s ease;
+}
+
+button[type=submit]:hover p {
+    padding-right: 40px;
+}
+
+button[type=submit]:hover .icon {
+    transform: translateX(60px) rotate(-90deg);
+    opacity: 1;
+    visibility: visible;
+}
+
+button[type=submit] .icon {
+    position: absolute;
+    transform: translateX(80px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease,
+                visibility 0.5s ease,
+                transform 0.5s ease;
+}
+
+.superAdmin-addSubject .subjects {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.subjects .subject-box {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-2);
+    padding: 20px;
+    border-radius: 15px;
+    animation: o-0-1 0.8s ease;
+    animation: r-l 0.8s ease;
+    margin: 5px;
+}
+
+.subject-box .subject-upper-controlls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.subject-upper-controlls .subject-name {
+    flex: 1;
+    font-family: var(--font-montserrat);
+    font-size: 1.7em;
+    color: var(--dark-2);
+}
+
+.subject-upper-controlls .icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 0 0 auto;
+    padding: 10px;
+    border-radius: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.subject-upper-controlls > .icon:hover,
+.subject-upper-controlls > .icon:focus {
+    background-color: var(--light-4);
+}
+
+.subject-upper-controlls > .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--dark-2);
+}
+
+.subject-box .subject-mid-info {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.6em;
+    font-weight: 600;
+    color: var(--light-2);  
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.subject-type {
+    background-color: #E63946;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 2px;
+}
+
+.subject-strand {
+    background-color: #457B9D;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 2px;
+}
+
+.subject-grade {
+    background-color: #A8DADC;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 2px;
+}
+
+.subject-box .subject-description {
+    background-color: var(--light-4);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    font-family: var(--font-lora);
+    color: var(--dark-2);
+}
+
+.subject-box .view-subject-details {
+    background-color: var(--info-1);
+    color: var(--light-2);
+    font-size: 1.1em;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+
+.subjects .error-subjects {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.error-subjects > p {
+    font-weight: 900;
+    font-size: 1.3em;
+    margin: 0 0 50px 0;
+    font-family: var(--font-montserrat);
+    color: var(--dark-2);
+    animation: o-0-1 0.6s ease;
+    animation: b-t 0.6s ease;
+}
+
+.error-subjects .not-found-icon {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    animation: o-0-1 0.3s ease;
+    animation: b-t 0.3s ease;
+}
+
+.not-found-icon img {
+    width: 100%;
+    height: 100%;
+}

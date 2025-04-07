@@ -1,0 +1,83 @@
+.attendance-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+
+.attendance-container .attendance-report {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.attendance-report .report-box {
+    min-width: 100px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    color: var(--light-2);
+    flex-grow: 1;
+    font-family: var(--font-montserrat);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    animation: o-0-1 0.2s ease;
+    animation: r-l 0.2s ease;
+}
+
+.report-box .report-value {
+    font-size: 2em;
+}
+
+.attendance-table {
+    overflow-x: hidden;
+    border-radius: 20px;
+    margin: 10px 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: o-0-1 0.2s ease;
+    animation: b-t 0.6s ease;
+}
+
+.attendance-table table {
+    /* flex: 1; */
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse !important;
+}
+
+table thead th {
+    border: 1px solid var(--clean-1);
+}
+
+table tbody tr {
+    border-bottom: 1px solid var(--light-4);
+}
+
+table thead tr th div {
+    padding: 15px;
+    /* border-bottom: 1px solid var(--light-4); */
+    /* margin-bottom: 10px; */
+    color: var(--light-2);
+    font-size: 0.8em;
+}
+
+table thead tr th {
+    background-color: var(--maroon-2);
+}
+
+table tbody tr td div {
+    padding: 30px 0;
+    font-weight: 600;
+    background-color: var(--clean-1);
+    font-size: 0.7em;
+}
+
+.status > p {
+    margin: 0 5px;
+    border-radius: 15px;
+}
+
+.bg-ontime { background-color: #4CAF50; color: white; }
+.bg-late { background-color: #FFC107; color: black; }
+.bg-cutting { background-color: #FF5722; color: white; }
+.bg-present { background-color: #2196F3; color: white; }  

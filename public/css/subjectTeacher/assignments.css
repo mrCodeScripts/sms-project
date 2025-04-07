@@ -1,0 +1,388 @@
+.subject-teacher-assig {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.subject-teacher-assig .controller {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.controller .create-new-assig {
+    background-color: var(--info-1);
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: var(--light-2);
+    font-family: var(--font-montserrat);
+    font-size: 1em;
+    border-radius: 15px;
+}
+
+.subject-teacher-assig .assignments {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.assignments .assignment-boxes {
+    display: flex;   
+    flex-direction: column;
+    background-color: var(--neutral-2);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 300px;
+}
+
+.assignment-boxes .upper-controll .assignment-name {
+    font-size: 1.2em;
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    color: var(--dark-2);
+    word-wrap: break-word !important;
+    white-space: normal;
+    min-width: 200px;
+}
+
+.assignment-boxes .upper-controll {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.upper-controll .controllers {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}
+
+.upper-controll .controllers .icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+}
+
+.controllers > .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.assignment-boxes .lower-controll {
+    display: flex;
+    flex-direction: column;
+}
+
+.lower-controll .lower-upper-controll {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.lower-upper-controll .time-stamp {
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+.lower-upper-controll .lower-upper-controll-mini {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.lower-upper-controll-mini .icon-part {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon-part .icon {
+    margin: 0 5px;
+}
+
+.lower-upper-controll-mini .priority-level {
+    margin: 0 5px;
+}
+
+.lower-upper-controll-mini .priority-level > span {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.7em;   
+}
+
+.lower-upper-controll-mini .critical {
+    background-color: var(--error-dark);
+    color: var(--light-2);
+}
+
+.lower-controll .description {
+    padding: 10px;
+    font-size: 0.8em;
+    color: var(--dark-2);
+    background-color: var(--muted-sage);
+    border-radius: 15px;
+}
+
+.closeModalAddAssig .view-assignment-modal {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.view-assignment-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+    width: 100%;
+    height: 100%;
+}
+
+.view-assignment-modal .opaque {
+    background-color: var(--dark-2);
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.view-assignment-modal .info {
+    position: relative;
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.info .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+    position: relative;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+    width: 100%;
+    border: 1px solid var(--light-4);
+    padding: 15px;
+    resize: none;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.input-wrapper select {
+    appearance: none;
+}
+
+.input-wrapper .input-icon {
+    right: 20px;
+    position: absolute;
+    transition: 0.3s ease;
+    opacity: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.input-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.input-wrapper select:hover + .input-icon,
+.input-wrapper select:focus-within + .input-icon {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.input-wrapper textarea {
+    min-height: 100px;
+    background-color: var(--neutral-7);
+    border-radius: 15px;
+}
+
+.info button[type=submit] {
+    padding: 15px 10px;
+    font-size: 1.1em;
+    font-weight: 650;
+    font-family: var(--font-montserrat);
+    color: var(--light-2);
+    background-color: var(--twitter-blue);
+    border: none;
+    outline: none;
+    margin: 5px 0;
+    border-radius: 8px;
+}
+
+.info .input-wrapper-file {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.input-wrapper-file input[type=file] {
+    width: 100%;
+    background-color: var(--light-2);
+    border-radius: 10px;
+    padding: 30px;
+    border: none;
+    outline: none;
+    border: 2px dashed var(--youtube-red);
+}
+
+.info .close-assig-btn {
+    width: fit-content;
+    border-radius: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+}
+
+.close-assig-btn .icon {
+    width: 15px;
+    height: 15px;
+}
+
+.close-assig-btn .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.lower-controll .view-submission-btn {
+    padding: 10px;
+    background-color: var(--focus-ink);
+    color: var(--light-2);
+    border: 1px solid var(--light-4);
+    outline: none;
+    margin: 10px 0;
+}
+
+.view-submitted-assig-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    transition: visibility 0.3s ease,
+                opacity 0.3s ease;
+}
+
+.view-submitted-assig-modal .opaque {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: var(--dark-2);
+    opacity: 0.9;
+}
+
+.view-submitted-assig-modal .submitted-assig-container {
+    position: relative;
+    z-index: 30;
+}
+
+.closeSubmittedassigModal .view-submitted-assig-modal {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.submitted-assig-container .close-submit-assig-modal {
+    width: fit-content;
+    margin: 5px;
+    border-radius: 100%;
+    padding: 5px;
+    border: none;
+    outline: none;
+    z-index: 100;
+    position: relative;
+}
+
+.close-submit-assig-modal .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.close-submit-assig-modal .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.submitted-assig-container .assig-box {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-2);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.assig-box .upper-controll {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.upper-controll .student-name {
+    font-size: 1.2em;
+    color: var(--dark-2);
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+}
+
+.upper-controll a {
+    font-size: 1.4em;
+    color: var(--info-1);
+    margin-left: auto;
+}
+
+.assig-box .mid-controll {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mid-controll .date-submitted .time {
+    font-size: 0.9em;
+}
+
+.mid-controll .dot {
+    margin: 0 10px;
+}
+
+.mid-controll .submitted-section {
+    background-color: var(--sunset-2);
+    padding: 5px;
+    color: var(--light-2);
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.assig-box .lower-controll {
+    display: flex;
+    flex-direction: column;
+}
+
+.lower-controll .note {
+    font-size: 0.9em;
+    font-family: var(--font-roboto);
+    color: var(--dark-2);
+    padding: 15px;
+    background-color: var(--blush-1);
+    margin: 10px 0;
+    border-radius: 15px;
+}
