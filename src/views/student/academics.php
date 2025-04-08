@@ -143,7 +143,7 @@ $countTodaySubmittedAssig = $studentControllers->countSubmittedAssigToday(false)
                         <p class="bx-notif-value">
                             <?= $countTodaySubmittedAssig ?>
                         </p>
-                        <p class="bx-notif-label">Submit Today</p>
+                        <p class="bx-notif-label">Submitted Today</p>
                     </div>
                     <div class="box-notif" style="background-color: var(--success-1);color: #FFF;">
                         <p class="bx-notif-value">

@@ -171,44 +171,45 @@ class StudentController  {
     public function countCompleteAssig (bool $alert = true) {
         $uuid = $_SESSION["CURR_SESSION"]["CURRENT_USER_UUID"] ?? null;
         $lrn = $this->studentModel->getMyLrn($uuid);
-        $fetch = $this->studentModel->countCompletedAssignments($lrn, false);
+        $myClassId = $this->studentModel->getMyClassId($lrn);
+        $fetch = $this->studentModel->countCompletedAssignments($lrn, $myClassId, false);
         if (empty($fetch) && $alert) {
             $this->middleware->alert("NO_COMPLETED_ASSIG");
         } 
-        return sizeof($fetch);
+        return $fetch[0]["completed_assignments"];
     }
     
     public function countNewAssig (bool $alert = true) {
         $uuid = $_SESSION["CURR_SESSION"]["CURRENT_USER_UUID"] ?? null;
         $lrn = $this->studentModel->getMyLrn($uuid);
         $myClassId = $this->studentModel->getMyClassId($lrn);
-        $fetch = $this->studentModel->countNewAssignments($myClassId, false);
+        $fetch = $this->studentModel->countNewAssignments($lrn, $myClassId, false);
         if (empty($fetch) && $alert) {
             $this->middleware->alert("NO_NEW_ASSIG_FOUND");
         } 
-        return sizeof($fetch);
+        return $fetch[0]["pending_or_upcoming_assignments"];
     }
 
     public function countPendingAssig (bool $alert = true) {
         $uuid = $_SESSION["CURR_SESSION"]["CURRENT_USER_UUID"] ?? null;
         $lrn = $this->studentModel->getMyLrn($uuid);
         $myClassId = $this->studentModel->getMyClassId($lrn);
-        $fetch = $this->studentModel->countPendingAssignments($myClassId, false);
+        $fetch = $this->studentModel->countPendingAssignments($lrn, $myClassId, false);
         if (empty($fetch) && $alert) {
             $this->middleware->alert("NO_PENDING_ASSIG_FOUND");
         } 
-        return sizeof($fetch);
+        return $fetch[0]["pending_assignments"];
     }
 
     public function countSubmittedAssigToday (bool $alert = true) {
         $uuid = $_SESSION["CURR_SESSION"]["CURRENT_USER_UUID"] ?? null;
         $lrn = $this->studentModel->getMyLrn($uuid);
         $myClassId = $this->studentModel->getMyClassId($lrn);
-        $fetch = $this->studentModel->countSubmittedAssignmentsToday($myClassId, false);
+        $fetch = $this->studentModel->countSubmittedAssignmentsToday($lrn, $myClassId, false);
         if (empty($fetch) && $alert) {
             $this->middleware->alert("NO_TODAY_SUB_ASSIG_FOUND");
         } 
-        return sizeof($fetch);
+        return $fetch[0]["submmitted_assig_today"];
     }
     
 }

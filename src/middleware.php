@@ -261,7 +261,6 @@ class Middleware {
         header("Content-Security-Policy: script-src 'self' 'nonce-$nonce' 'strict-dynamic';");
     }
 
-
     ## MUST BE CONTINUED FOR AUTOMATIC LOGIN VIA GOOGLE ACCOUNT
     ## to continue development, go to Google.cloud.console or ChatGPT
     public function AuthGoogleLogin () {

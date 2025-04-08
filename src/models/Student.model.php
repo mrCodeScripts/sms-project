@@ -33,68 +33,92 @@ class StudentModel extends Database {
     }
 
     public function getAllMyAssignments (string $classId, string $lrn) {
-        $query = "SELECT 
-        assig.assignment_id AS AssigId,
-        assig.assignment_title AS AssigTitle,
-        assig.assignment_description AS AssigDesc,
-        assig.assignment_due_date AS AssigDueDate,
-        assig.assignment_created_on AS AssigCreatedDate,
-        assig.assignment_created_by AS TeacherProfessionalID,
-        c.class_section_name AS SectionName,
+        $query = "SELECT  
+        a.assignment_id AS AssigId,
+        a.assignment_title AS AssigTitle,
+        a.assignment_description AS AssigDesc,
+        a.assignment_due_date AS AssigDueDate,
+        a.assignment_created_on AS AssigCreatedDate,
+        a.assignment_created_by AS TeacherProfessionalID,
+		c.class_section_name AS SectionName,
         subj.subject_name AS SubjectName,
         up.file_stored_name AS StoredName
-        FROM assignments assig
-        JOIN class c ON c.class_id = assig.class_id
-        JOIN subjects subj ON subj.subject_id = assig.subject_id
-        LEFT JOIN assignment_attachements assigAttach ON assigAttach.assignment_id = assig.assignment_id
-        LEFT JOIN uploaded_files up ON up.file_id = assigAttach.assignment_file_id
-        LEFT JOIN class_students cs ON cs.class_id = c.class_id
+        FROM assignments a
         LEFT JOIN student_submissions ss 
-        ON ss.assignment_id = assig.assignment_id 
-        AND ss.student_lrn = cs.class_student_id
-        WHERE assig.class_id = :class_id 
-        AND cs.class_student_lrn = :lrn
-        AND ss.student_lrn IS NULL;";
+            ON a.assignment_id = ss.assignment_id 
+            AND ss.student_lrn = :lrn 
+        LEFT JOIN class c
+        	ON c.class_id = a.class_id
+		LEFT JOIN subjects subj
+        	ON subj.subject_id = a.subject_id
+		LEFT JOIN assignment_attachements aa
+			ON aa.assignment_id = a.assignment_id
+		LEFT JOIN uploaded_files up
+			ON up.file_id = aa.assignment_file_id
+        WHERE a.class_id = :class_id
+        AND ss.submission_id IS NULL;";
         $exec = $this->setBindedExecution($query, ["class_id" => $classId, "lrn" => $lrn])->fetchAll();
         return $exec;
     }
 
-    public function countCompletedAssignments (string $lrn, bool $alert = true) {
-        $query = "SELECT submission_id, student_lrn FROM student_submissions WHERE student_lrn = :lrn;";
-        $exec = $this->setBindedExecution($query, ["lrn" => $lrn])->fetchAll();
+    public function countCompletedAssignments (string $lrn, string $classId, bool $alert = true) {
+        $query = "SELECT COUNT(*) AS completed_assignments 
+        FROM assignments a
+        LEFT JOIN student_submissions ss 
+        ON a.assignment_id = ss.assignment_id 
+        AND ss.student_lrn = :lrn
+        WHERE a.class_id = :class_id 
+        AND (ss.submission_id IS NOT NULL AND (ss.submission_status = 'completed' OR ss.submission_status = 'submitted'));";
+        $exec = $this->setBindedExecution($query, ["lrn" => $lrn, "class_id" => $classId])->fetchAll();
         if (empty($exec) && $alert) {
             $this->middleware->alert("NO_COMPLETED_ASSIG");
         }
         return $exec;
     }
 
-    public function countNewAssignments (string $classId, bool $alert = true) {
-        $query = "SELECT * FROM assignments assig
-        LEFT JOIN student_submissions ss ON assig.assignment_id = ss.assignment_id
-        WHERE assig.class_id = :class_id AND assignment_created_on >= NOW() - INTERVAL 7 DAY AND ss.assignment_id IS NULL;";
-        $fetch = $this->setBindedExecution($query, ["class_id" => $classId])->fetchAll();
+    public function countNewAssignments (string $lrn, string $classId, bool $alert = true) {
+        $query = "SELECT COUNT(*) AS pending_or_upcoming_assignments
+        FROM assignments a
+        LEFT JOIN student_submissions ss 
+        ON a.assignment_id = ss.assignment_id 
+        AND ss.student_lrn = :lrn
+        WHERE a.class_id = :class_id 
+        AND (ss.submission_id IS NULL AND a.assignment_due_date >= NOW());";
+        $fetch = $this->setBindedExecution($query, ["class_id" => $classId, "lrn" => $lrn])->fetchAll();
         if (empty($fetch) && $alert) {
             $this->middleware->alert("NO_NEW_ASSIG_FOUND");
         }
         return $fetch;
     }
 
-    public function countPendingAssignments (string $classId, bool $alert = true) {
-        $query = "SELECT * FROM assignments assig
-        LEFT JOIN student_submissions ss ON assig.assignment_id = ss.assignment_id
-        WHERE assig.class_id = :class_id AND ss.assignment_id IS NULL;";
-        $fetch = $this->setBindedExecution($query, ["class_id" => $classId])->fetchAll();
+    public function countPendingAssignments (string $lrn, string $classId, bool $alert = true) {
+        $query = "SELECT COUNT(*) AS pending_assignments 
+        FROM assignments a
+        LEFT JOIN student_submissions ss 
+        ON a.assignment_id = ss.assignment_id 
+        AND ss.student_lrn = :lrn
+        WHERE a.class_id = :class_id 
+        AND (ss.submission_id IS NOT NULL AND ss.submission_status = 'pending');";
+        $fetch = $this->setBindedExecution($query, ["lrn" => $lrn, "class_id" => $classId])->fetchAll();
         if (empty($fetch) && $alert) {
             $this->middleware->alert("NO_PENDING_ASSIG_FOUND");
         }
         return $fetch;
     }
 
-    public function countSubmittedAssignmentsToday (string $classId, bool $alert = true) {
-        $query = "SELECT * FROM assignments assig
-        LEFT JOIN student_submissions ss ON assig.assignment_id = ss.assignment_id
-        WHERE assig.class_id = :class_id AND ss.submission_date <= NOW() + INTERVAL 1 DAY AND ss.assignment_id IS NOT NULL;";
-        $fetch = $this->setBindedExecution($query, ["class_id" => $classId])->fetchAll();
+    public function countSubmittedAssignmentsToday (string $lrn, string $classId, bool $alert = true) {
+        $query = "SELECT COUNT(*) AS submmitted_assig_today 
+        FROM assignments a
+        LEFT JOIN student_submissions ss 
+        ON a.assignment_id = ss.assignment_id 
+        AND ss.student_lrn = :lrn
+        WHERE a.class_id = :class_id 
+        AND (ss.submission_date <= NOW() + INTERVAL 1 DAY AND (
+            ss.submission_status = 'pending' OR 
+            ss.submission_status = 'submitted' OR 
+            ss.submission_status = 'completed'
+        ));";
+        $fetch = $this->setBindedExecution($query, ["lrn" => $lrn, "class_id" => $classId])->fetchAll();
         if (empty($fetch) && $alert) {
             $this->middleware->alert("NO_TODAY_SUB_ASSIG_FOUND");
         }

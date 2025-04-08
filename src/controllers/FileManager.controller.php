@@ -42,7 +42,8 @@ class FileManagerController {
         if (!is_dir($folder)) mkdir($folder, 0777, true);
     }
 
-    public function moveUploadFile(string $fileTmpName, string $fileName, string $fileType, int $fileSize, string $docType, string $userId, string $extExtension = "", bool $alertMsg = true): mixed {
+    public function moveUploadFile(string $fileTmpName, string $fileName, string $fileType, int $fileSize, 
+    string $docType, string $userId, string $extExtension = "", bool $alertMsg = true): mixed {
         $fileId = $this->middleware->getUniqueId();
         $identifiedFileDir = $this->checkFileStorageDir($docType, $userId);
         $extra = $extExtension != "" ? "{$extExtension}/" : "";
