@@ -42,7 +42,7 @@ $config = [
     ],
     "APP_FILE_UPLOAD_PATHS" => [
         "other" => "userFiles/",
-        "assignment" => "classFiles/",
+        "assignment" => "classFiles/assignments/",
         "enrollment_form" => "schoolFiles/enrollmentForms/",
         "birth_cert" => "schoolFiles/birthCertificates/",
         "form137" => "schoolFiles/form137s/",

@@ -136,7 +136,7 @@ $assignments = $subjectTeacherController->getAllAssignments() ?? null;
                                 </div>
                             </button>
                             <div class="containers has-scroll">
-                                <div class="assig-box">
+                                <!-- <div class="assig-box">
                                     <div class="upper-controll">
                                         <p class="student-name">
                                             John Wick
@@ -166,7 +166,7 @@ $assignments = $subjectTeacherController->getAllAssignments() ?? null;
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatibus alias dolor. Aspernatur est, nesciunt possimus minima repudiandae voluptas commodi aliquam tempore. Fugit unde quo fuga tempore error tenetur provident.
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -199,7 +199,6 @@ $assignments = $subjectTeacherController->getAllAssignments() ?? null;
                                                 $date2 = $assig["AssigDueDate"];
                                                 $time1 = $middleware->getDateTimeFormat($date1);
                                                 $time2 = $middleware->getDateTimeFormat($date2);
-
                                             ?>
                                             <?= $time1 . " - " . $time2 ?>
                                         </span>

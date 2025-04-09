@@ -197,7 +197,8 @@ class StudentModel extends Database {
         return $exec[0]["student_learning_ref_number"];
     }
 
-    public function addNewSubmittedAssignment (string $assigId, string $lrn, string $assigFileId, string $note, string $assigStatus = "pending", bool $alertMsg = true): bool {
+    public function addNewSubmittedAssignment (string $assigId, string $lrn, string $assigFileId, 
+    string $note, string $assigStatus = "pending", bool $alertMsg = true): bool {
         $query = "INSERT INTO
         student_submissions (
         submission_id,

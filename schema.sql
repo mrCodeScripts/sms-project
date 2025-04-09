@@ -242,7 +242,6 @@ CREATE TABLE `assignments` (
   `subject_id` VARCHAR(64) NOT NULL
 );
 
--- NEW ---------------------------------
 CREATE TABLE `assignment_attachements` (
   `attachement_id` VARCHAR (64) PRIMARY KEY,
   `assignment_id` VARCHAR (64) NOT NULL,
@@ -252,7 +251,6 @@ CREATE TABLE `assignment_attachements` (
 
 ALTER TABLE `assignment_attachements` ADD FOREIGN KEY (`assignment_file_id`) REFERENCES `uploaded_files`(`file_id`) ON DELETE CASCADE;
 ALTER TABLE `assignment_attachements` ADD FOREIGN KEY (`assignment_id`) REFERENCES `assignments`(`assignment_id`) ON DELETE CASCADE;
-------------------------------------
 
 
 CREATE TABLE `student_submissions` (
@@ -262,7 +260,7 @@ CREATE TABLE `student_submissions` (
   `submission_file_id` VARCHAR(64),
   `submission_text` TEXT,
   `submission_date` DATETIME DEFAULT CURRENT_TIMESTAMP,
-  `submission_status` ENUM("pending","submitted","failed") NOT NULL
+  `submission_status` ENUM("pending", "submitted", "failed", "completed") NOT NULL
 );
 
 CREATE TABLE `grade_status` (
@@ -609,9 +607,6 @@ INSERT INTO `strand` (`strand_id`, `strand_name`, `strand_track`, `strand_descri
 
 
 
-
-
-
 -- DEFAULT SUPER ADMINISTRATOR ACCOUNT ---
 INSERT INTO user_accounts (user_uuid, user_email, user_fname, user_lname, user_pwd, user_gender, user_role) VALUES 
 ("d8b78a6b0be56966d2c4", "zsnhsAdmin@gmail.com", "Main", "Administrator", "$2y$10$CwDg8UICO4oBUM2y6LADsOqLXvqYhRXGeEqdMdT6Ulds4mBARe3jq", "G004", "SUADM");
@@ -623,19 +618,29 @@ INSERT INTO user_accounts (user_uuid, user_email, user_fname, user_lname, user_p
 -- PASSWORDS --
 -- @dmin123 --
 INSERT INTO user_accounts (user_uuid, user_email, user_fname, user_lname, user_pwd, user_gender, user_role) VALUES 
-("lsdfkj30srlkj2lkjsdf", "adviserTeacher@gmail.com", "Adviser", "Teacher", "$2y$10$kNqtBOGpLYUljOIJNgV/dOlxdMvqPNCN73You/hJGM9xyBoC.VFxK", "G001", "ADVTEA");
+("lad;fjl;akjdsfsdfkj30srlkj2lkjsdf", "adviserTeacher@gmail.com", "Adviser", "Teacher", "$2y$10$kNqtBOpLYUljOIJNgV/dOlxdMvqPNCN73You/hJGM9xyBoC.VFxK", "G001", "ADVTEA"),
+("lsdfkj30srlkja;dfj0u0292lkjsdf", "advTea@gmail.com", "Adv", "Tea", "$2y$10$kNqtBOGpLYUljOIJNgV/dOxdMvqPNCN73You/hJGM9xyBoC.VFxK", "G001", "ADVTEA");
 
 INSERT INTO user_accounts (user_uuid, user_email, user_fname, user_lname, user_pwd, user_gender, user_role) VALUES 
-("l3dfkj30srlkj2lkjsdf", "admin@gmail.com", "Main", "Admin", "$2y$10$kNqtBOGpLYUljOIJNgV/dOlxdMvqPNCN73You/hJGM9xyBoC.VFxK", "G001", "ADM");
+("39dkja;sldj30grlkdllkjsdf", "admin@gmail.com", "Main", "Admin", "$2y$10$kNqtBOGpLYUljOIJNgV/dOlxdMvqPNCN73You/hJGM9xyBoC.VFxK", "G001", "ADM"),
+("l3dfkj30lrl;asdjlkj2lkjdf", "adm@gmail.com", "Min", "Adm", "$2y$10$kNqtBOGpLYUljOIJNgV/dOlxdMvqPNCN73You/hJGM9xyBoC.VFxK", "G001", "ADM");
 
 
 INSERT INTO user_accounts (user_uuid, user_email, user_fname, user_lname, user_pwd, user_gender, user_role) VALUES 
-("isdfkj30srlkj2lkjsdf", "subjectTeacher@gmail.com", "Subject", "Teacher", "$2y$10$kNqtBOGpLYUljOIJNgV/dOlxdMvqPNCN73You/hJGM9xyBoC.VFxK", "G001", "SUBJTEA");
+("isdfkj30salkj2lkjsdf", "subjectTeacher@gmail.com", "Subject", "Teacher", "$2y$10$kNqtBOGpLYUljOIJNgV/dOlxdMvqPNCN73You/hJGM9xyBoC.VFxK", "G001", "SUBJTEA");
 
 -- REGISTERED TEACHERS --
 INSERT INTO registered_teachers (teacher_professional_id, teacher_account_id, teacher_registration_status, teacher_fname, teacher_lname, teacher_mname, teacher_age, teacher_gender, teacher_bday) VALUES 
-("1EDKSL1930", "isdfkj30srlkj2lkjsdf", "REG", "Subject", "Teacher", "M", 30, "G001", "2025-03-31 01:54:26"),
-("1UDKSL1930", "lsdfkj30srlkj2lkjsdf", "REG", "Adviser", "Teacher", "M", 33, "G001", "2025-03-31 01:54:26");
+("1EDKSL1930", "isdfkj30salkj2lkjsdf", "REG", "Subject", "Teacher", "M", 30, "G001", "2025-03-31 01:54:26"),
+("1UDKSL1930", "lad;fjl;akjdsfsdfkj30srlkj2lkjsdf", "REG", "Adviser", "Teacher", "M", 33, "G001", "2025-03-31 01:54:26"),
+("1UDKSL1931", "lsdfkj30srlkja;dfj0u0292lkjsdf", "REG", "Adv", "Tea", "M", 33, "G001", "2025-03-31 01:54:26"),
+("1UDKSL1911", "39dkja;sldj30grlkdllkjsdf", "REG", "Main", "Admin", "M", 33, "G001", "2025-03-31 01:54:26"),
+("1UDKS11911", "l3dfkj30lrl;asdjlkj2lkjdf", "REG", "Min", "Admin", "M", 33, "G001", "2025-03-31 01:54:26");
+
+
+
+
+
 
 
 -- BUILDINGS, FLOOR, AND ROOM --
@@ -678,9 +683,6 @@ INSERT INTO `subjects` (`subject_type`, `subject_id`, `subject_name`, `subject_d
 ('MAJOR', 'SUBJ-STEM-005', 'Biology', 'Cell biology, evolution, and human anatomy.', 'STEM'),
 ('MAJOR', 'SUBJ-ABM-001', 'Principles of Marketing', 'Market research, branding, and strategies.', 'ABM'),
 ('MAJOR', 'SUBJ-ABM-002', 'Business Mathematics', 'Accounting, financial ratios, and profit analysis.', 'ABM');
-
-
-
 
 -- Inserting Subject Types
 -- Insert subtopics (Core Subjects)
@@ -725,28 +727,3 @@ INSERT INTO `quarter_level` (`quarter_level_id`, `quarter_name`, `quarter_descri
 INSERT INTO class (class_id, class_adviser, class_section_name, class_student_limit, class_strand, class_room, class_grade_level) VALUES 
 ("lskjdf23011209usfd", "1UDKSL1930", "EPYC", 40, "ict", "ICT_PROG_101", "12");
 
--- Insert class schedules with day IDs
-INSERT INTO `class_schedules` (`schedule_id`, `class_id`, `subject_id`, `teacher_id`, `day_of_week`, `start_time`, `end_time`) VALUES
-('SCHD-001', 'lskjdf23011209usfd', 'SUBJ-CORE-001', '1EDKSL1930', 'b', '08:00:00', '10:00:00'), -- Monday
-('SCHD-002', 'lskjdf23011209usfd', 'SUBJ-CORE-002', '1UDKSL1930', 'c', '08:00:00', '10:00:00'), -- Tuesday
-('SCHD-003', 'lskjdf23011209usfd', 'SUBJ-CORE-003', '1EDKSL1930', 'd', '08:00:00', '10:00:00'), -- Wednesday
-('SCHD-004', 'lskjdf23011209usfd', 'SUBJ-CORE-004', '1UDKSL1930', 'e', '08:00:00', '10:00:00'), -- Thursday
-('SCHD-005', 'lskjdf23011209usfd', 'SUBJ-CORE-005', '1EDKSL1930', 'f', '08:00:00', '10:00:00'), -- Friday
-('SCHD-006', 'lskjdf23011209usfd', 'SUBJ-CORE-006', '1UDKSL1930', 'b', '10:30:00', '12:30:00'), -- Monday
-('SCHD-007', 'lskjdf23011209usfd', 'SUBJ-CORE-007', '1EDKSL1930', 'c', '10:30:00', '12:30:00'), -- Tuesday
-('SCHD-008', 'lskjdf23011209usfd', 'SUBJ-STEM-001', '1UDKSL1930', 'd', '10:30:00', '12:30:00'), -- Wednesday
-('SCHD-009', 'lskjdf23011209usfd', 'SUBJ-STEM-002', '1EDKSL1930', 'e', '10:30:00', '12:30:00'), -- Thursday
-('SCHD-010', 'lskjdf23011209usfd', 'SUBJ-STEM-003', '1UDKSL1930', 'f', '10:30:00', '12:30:00'); -- Friday
-
--- Insert assignments based on class schedule
-INSERT INTO `assignments` (`assignment_id`, `assignment_title`, `assignment_description`, `assignment_due_date`, `assignment_created_by`, `class_id`, `subject_id`) VALUES
-('ASSGN-001', 'Oral Communication Presentation', 'Prepare a 5-minute speech on a current global issue.', '2025-04-10 23:59:59', '1EDKSL1930', 'lskjdf23011209usfd', 'SUBJ-CORE-001'),
-('ASSGN-002', 'Reading and Writing Essay', 'Write a 1000-word essay on the importance of critical thinking in education.', '2025-04-12 23:59:59', '1UDKSL1930', 'lskjdf23011209usfd', 'SUBJ-CORE-002'),
-('ASSGN-003', 'Earth and Life Science Project', 'Create a presentation on the impact of climate change on ecosystems.', '2025-04-14 23:59:59', '1EDKSL1930', 'lskjdf23011209usfd', 'SUBJ-CORE-003'),
-('ASSGN-004', 'General Mathematics Assignment', 'Solve a set of problems involving functions and probability theory.', '2025-04-15 23:59:59', '1UDKSL1930', 'lskjdf23011209usfd', 'SUBJ-CORE-004'),
-('ASSGN-005', 'Statistics and Probability Report', 'Analyze a dataset and write a report on your findings.', '2025-04-16 23:59:59', '1EDKSL1930', 'lskjdf23011209usfd', 'SUBJ-CORE-005'),
-('ASSGN-006', '21st Century Literature Analysis', 'Write a paper analyzing a piece of modern literature from a global perspective.', '2025-04-17 23:59:59', '1UDKSL1930', 'lskjdf23011209usfd', 'SUBJ-CORE-006'),
-('ASSGN-007', 'Understanding Culture Essay', 'Write a 1500-word essay on the effects of globalization on local cultures.', '2025-04-18 23:59:59', '1EDKSL1930', 'lskjdf23011209usfd', 'SUBJ-CORE-007'),
-('ASSGN-008', 'Pre-Calculus Practice Problems', 'Solve problems involving trigonometry and conic sections.', '2025-04-20 23:59:59', '1UDKSL1930', 'lskjdf23011209usfd', 'SUBJ-STEM-001'),
-('ASSGN-009', 'Basic Calculus Assignment', 'Complete exercises on derivatives and their applications.', '2025-04-22 23:59:59', '1EDKSL1930', 'lskjdf23011209usfd', 'SUBJ-STEM-002'),
-('ASSGN-010', 'Physics Experiment Report', 'Conduct an experiment on motion and write a report detailing your results.', '2025-04-25 23:59:59', '1UDKSL1930', 'lskjdf23011209usfd', 'SUBJ-STEM-003');

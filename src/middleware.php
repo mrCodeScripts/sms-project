@@ -34,7 +34,7 @@ class Middleware {
             case $role == "SUADM":
                 if (
                     strtok($_SERVER["REQUEST_URI"], "?") === "/views/superAdmin/dashboard" || 
-                    strtok($_SERVER["REQUEST_URI"], "?") === "/views/superAdmin/dashboard" || 
+                    strtok($_SERVER["REQUEST_URI"], "?") === "/views/superAdmin/users" || 
                     strtok($_SERVER["REQUEST_URI"], "?") === "/views/superAdmin/students" || 
                     strtok($_SERVER["REQUEST_URI"], "?") === "/views/superAdmin/addSubject" ||
                     strtok($_SERVER["REQUEST_URI"], "?") === "/views/superAdmin/classManager" ||
