@@ -165,7 +165,12 @@ class StudentController  {
         [$a2, $b2, $c2] = $this->fileManager->uploadFile($data["submission_file_id"], "other", "", false); 
         [$a, $b, $c] = $this->fileManager->uploadFile($data["submission_file_id"], "assignment", $uuid, false);
         $data["submission_file_id"] = $c;
-        $this->studentModel->addNewSubmittedAssignment($data["assignment_id"], $data["student_lrn"], $data["submission_file_id"], "pending");
+        $this->studentModel->addNewSubmittedAssignment(
+            $data["assignment_id"], 
+            $data["student_lrn"], 
+            $data["submission_file_id"], 
+            $data["submission_text"]
+        );
     }
 
     public function countCompleteAssig (bool $alert = true) {

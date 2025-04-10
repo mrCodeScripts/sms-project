@@ -65,7 +65,8 @@ class SubjectTeacherController {
         $this->subjectTeacherModel->addAssignment($data, false);
 
         if (!empty($file)) {
-            [$a, $b, $specialC] = $this->fileManager->uploadFile($file, "assignment", $data["class_id"], false);
+            [$a, $b, $specialC] = $this->fileManager->uploadFile($file, 
+            "assignment", $data["class_id"], false);
             $data2 = [
                 "attachement_id" => $this->middleware->getUniqueId(10),
                 "assignment_id" => $data["assignment_id"],
@@ -85,5 +86,35 @@ class SubjectTeacherController {
             $this->middleware->alert("NO_STUDENT_SUBM");
         }
         return $exec;
+    }
+
+    public function addScore () {
+        $uuid = $_SESSION["CURR_SESSION"]["CURRENT_USER_UUID"];
+        $profId = $this->subjectTeacherModel->getMyProfessionalId($uuid);
+        $data = [
+            "score_record_id" => $this->middleware->getUniqueId(10),
+            "score_value" => $_POST["add-assignment-score"] ?? null,
+            "submitted_assignment" => $_POST["submitted-assig-id"] ?? null,
+            "subject_teacher" => $profId,
+            "student_lrn" => $_POST["student-lrn-score"] ?? null  
+        ];
+
+        $this->middleware->isAnyColumnEmpty($data);
+        $this->subjectTeacherModel->isSubjectTeacherExist($data["subject_teacher"]);
+        $this->subjectTeacherModel->isThisStudentAssigAlreadyGraded(
+            $data["submitted_assignment"], 
+            $data["student_lrn"]
+        );
+        $this->isThisGradeValid($data["score_value"]);
+        $this->subjectTeacherModel->addScore($data);
+    }
+
+    private function isThisGradeValid(int | string $grade) {
+        if (filter_var($grade, FILTER_VALIDATE_INT) === false) {
+            $this->middleware->alert("INV_GRADE_VALUE_CONTAINS_STR");
+        }
+        if (intval($grade) > Config::loadConfig()["SCHOOL_SETTINGS"]["MAX_SCORE_VALUE"]) {
+           $this->middleware->alert("INV_GRADE_VALUE_MAX_REACHED");
+        }
     }
 }

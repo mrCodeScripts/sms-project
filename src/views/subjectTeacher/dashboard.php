@@ -34,6 +34,12 @@
                         </a>
                     </li>
                     <li class="sidebar_links">
+                        <a href="/views/subjectTeacher/studentGrades">
+                            <i class="fa-solid fa-user"></i>
+                            Student Grades
+                        </a>
+                    </li>
+                    <li class="sidebar_links">
                         <a href="/views/subjectTeacher/settings">
                             <i class="fa-solid fa-gear"></i>
                             Settings

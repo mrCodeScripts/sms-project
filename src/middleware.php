@@ -27,6 +27,7 @@ class Middleware {
                 if (
                     strtok($_SERVER["REQUEST_URI"], "?") === "/views/subjectTeacher/settings" ||
                     strtok($_SERVER["REQUEST_URI"], "?") === "/views/subjectTeacher/assignments" ||
+                    strtok($_SERVER["REQUEST_URI"], "?") === "/views/subjectTeacher/studentGrades" ||
                     strtok($_SERVER["REQUEST_URI"], "?") === "/views/subjectTeacher/dashboard"
                 ) break;
                 header("Location: /views/subjectTeacher/dashboard");

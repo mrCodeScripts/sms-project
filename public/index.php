@@ -201,6 +201,15 @@ Router::get("/views/subjectTeacher/assignments", function ($middleware, $userAcc
     die();
 }, $middleware, $userAccountController, $subjectTeacherController);
 
+Router::get("/views/subjectTeacher/studentGrades", function ($middleware, $userAccountController, $subjectTeacherController) {
+    if (!$middleware->isLoggedIn()) header("Location: /views/login");
+    $middleware->roleRedirection();
+    include __DIR__ . "/../src/views/subjectTeacher/studentGrades.php";
+    die();
+}, $middleware, $userAccountController, $subjectTeacherController);
+
+
+
 Router::get("/views/subjectTeacher/settings", function ($middleware, $userAccountController) {
     if (!$middleware->isLoggedIn()) header("Location: /views/login");
     $middleware->roleRedirection();
@@ -367,5 +376,9 @@ Router::post("/request/subjectTeacher/getAssignmentSubmissions", function ($subj
         "render" => true
     ]));
 }, $subjectTeacherController, $middleware);
+
+Router::post("/request/subjectTeacher/addScore", function ($subjectTeacherController) {
+    $subjectTeacherController->addScore();
+}, $subjectTeacherController);
 
 Router::dispatch($_SERVER["REQUEST_URI"], $_SERVER["REQUEST_METHOD"]);

@@ -50,6 +50,9 @@ $config = [
         "report_card" => "schoolFiles/reportCards/",
         "student_photo" => "schoolFiles/studentPhotos/",
     ],
+    "SCHOOL_SETTINGS" => [
+        "MAX_SCORE_VALUE" => 100,
+    ],
     "ACC_DEF_SORT_LOG" => "ORDER BY log_rec_time DESC",
     "SYS_ERR_MSG" => [
         "PWD_NOMATCH" => [
@@ -653,7 +656,37 @@ $config = [
             "status" => "failed",
             "refresh" => false,
             "message" => "No student submissions.",
-        ]
+        ],
+        "INV_GRADE_VALUE_CONTAINS_STR" => [
+            "key" => "INV_GRADE_VALUE_CONTAINS_STR",
+            "status" => "failed",
+            "refresh" => false,
+            "message" => "Invalid student grade value: CONTAINS STRING!"
+        ],
+        "INV_GRADE_VALUE_MAX_REACHED" => [
+            "key" => "INV_GRADE_VALUE_MAX_REACHED",
+            "status" => "failed",
+            "refresh" => false,
+            "message" => "Invalid student grade value: SCORE VALUE MAX REACHED"
+        ],
+        "INV_GRADE_ASSIG_ALR_GRADED" => [
+            "key" => "INV_GRADE_ASSIG_ALR_GRADED",
+            "status" => "failed",
+            "refresh" => false,
+            "message" => "Invalid grading of assignment. Assignment already graded!",
+        ],
+        "SUCC_ADD_SCORE" => [
+            "key" => "SUCC_ADD_SCORE",
+            "status" => "success",
+            "refresh" => true,
+            "message" => "Successfuly added score on assignment.",
+        ],
+        "FAILED_ADD_SCORE" => [
+            "key" => "FAILED_ADD_SCORE",
+            "status" => "failed",
+            "refresh" => false,
+            "message" => "Failed to add score on assignment.",
+        ],
     ],
 ];
 

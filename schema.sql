@@ -283,12 +283,13 @@ CREATE TABLE `quarter_level` (
 
 CREATE TABLE `student_grade_records` (
   `grade_record_id` VARCHAR(64) PRIMARY KEY NOT NULL,
-  `subject` VARCHAR(64) UNIQUE NOT NULL,
-  `student_lrn` VARCHAR(12) UNIQUE NOT NULL,
+  `subject` VARCHAR(64) NOT NULL,
+  `student_lrn` VARCHAR(12) NOT NULL,
   `grade_record_stat` CHAR(15) NOT NULL,
   `class_id` VARCHAR(64) NOT NULL,
   `semester` CHAR(15) NOT NULL,
-  `quarter` CHAR (15) NOT NULL
+  `quarter` CHAR (15) NOT NULL,
+  UNIQUE (`subject`, `student_lrn`, `semester`, `quarter`)
 );
 
 CREATE TABLE `student_score_records` (
